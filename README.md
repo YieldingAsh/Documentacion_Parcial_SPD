@@ -29,6 +29,7 @@ implementado.
 • Deberán explicar el funcionamiento integral utilizando documentación
 MarkDown.
 # Funcion principal
+-Esta es la funcion principal la cual verifica si se toco el boton de subir o de bajar, ademas de encender el led rojo el cual se enciende cuando esta parado.
 ````
 void loop()
 {
@@ -41,6 +42,172 @@ void loop()
   if (abajo == true){
     bajando();
   };
+}
+````
+-Estas Funciones son para el display de 7 segmentos para la iluminacion de los leds correspondientes para generar la figura de un numero, el numero a generar de cada funcion es el nombre mismo de esa funcion.
+````
+void cero()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,LOW);
+}
+
+void uno()
+{
+  digitalWrite(a,LOW);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);
+}
+
+void dos()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,LOW);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,LOW);
+  digitalWrite(g,HIGH);
+}
+
+void tres()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,LOW);
+  digitalWrite(f,LOW);
+  digitalWrite(g,HIGH);
+}
+
+void cuatro()
+{
+  digitalWrite(a,LOW);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+}
+
+void cinco()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,LOW);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,LOW);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+}
+
+void seis()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,LOW);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+}
+
+void siete()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);
+}
+
+void ocho()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+}
+
+void nueve()
+{
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+}
+````
+-Esta funcion es un comporbador el cual se fija si el usuario esta pulsando el boton detener parar asi detener el monta carga
+````
+void comDetener()
+{
+  if (detener == true){
+    	digitalWrite(ledRojo,HIGH);
+    	digitalWrite(ledVerde,LOW);
+    	arriba = false;
+    	abajo = false;
+  	}
+}
+````
+-Estos son todas las variables declaradas
+````
+int a = 2;
+int b = 3;
+int c = 4;
+int d = 5;
+int e = 6;
+int f = 7;
+int g = 8;
+int ledVerde = 9;
+int ledRojo = 10;
+int bajar = 11;
+int parar = 12;
+int subir = 13;
+int tiempo = 3000;
+int arriba = false;
+int abajo = false;
+int detener = false;
+int piso = 0;
+````
+-Funcion de setup para declarar los pines tambien para cetear el dispay en cero e inicialicar el serial ademas de imprimer el mensaje del piso en donde se encuentra el monta cargas
+````
+void setup()
+{
+  pinMode(a,OUTPUT);
+  pinMode(b,OUTPUT);
+  pinMode(c,OUTPUT);
+  pinMode(d,OUTPUT);
+  pinMode(e,OUTPUT);
+  pinMode(f,OUTPUT);
+  pinMode(g,OUTPUT);
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledRojo, OUTPUT);
+  pinMode(bajar, INPUT);
+  pinMode(parar, INPUT);
+  pinMode(subir, INPUT);
+  cero();
+  Serial.begin(9600);
+  Serial.print("Piso : ");
+  Serial.print(piso);
 }
 ````
 # Link del projecto
