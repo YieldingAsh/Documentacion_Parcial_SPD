@@ -430,5 +430,14 @@ void bajando()
   }
 }
 ````
+-Funcion para escribir en que piso esta el montacargas
+````
+void serial()
+{
+  Serial.print("\n");
+  Serial.print("Piso : ");
+  Serial.print(piso);
+}
+````
 # Link del projecto
 https://www.tinkercad.com/things/kREDjjAq87N
