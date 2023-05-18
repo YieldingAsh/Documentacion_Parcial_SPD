@@ -28,3 +28,20 @@ funcionamiento aplicado de cada componente.
 implementado.
 • Deberán explicar el funcionamiento integral utilizando documentación
 MarkDown.
+# Funcion principal
+````
+void loop()
+{
+  digitalWrite(ledRojo,HIGH);
+  arriba = digitalRead(subir);
+  if (arriba == true){
+  	subiendo();
+  };
+  abajo = digitalRead(bajar);
+  if (abajo == true){
+    bajando();
+  };
+}
+````
+# Link del projecto
+https://www.tinkercad.com/things/kREDjjAq87N
