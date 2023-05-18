@@ -210,5 +210,225 @@ void setup()
   Serial.print(piso);
 }
 ````
+-Estas dos funciones son las encargadas de subir y bajar el montacargas e llamar la funcion del numero correspondiente a mostrar en el display
+````
+void subiendo()
+{
+  digitalWrite(ledRojo,LOW);
+  digitalWrite(ledVerde,HIGH);
+  if (arriba == true){
+    if (piso == 0)
+    {
+    piso = 1;
+    serial();
+  	uno();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+  	comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 1)
+    {
+    piso = 2;
+    serial();
+  	dos();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 2)
+    {
+    piso = 3;
+    serial();
+  	tres();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 3)
+    {
+    piso = 4;
+    serial();
+  	cuatro();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 4)
+    {
+    piso = 5;
+    serial();
+  	cinco();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 5)
+    {
+    piso = 6;
+    serial();
+  	seis();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 6)
+    {
+    piso = 7;
+    serial();
+  	siete();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 7)
+    {
+    piso = 8;
+    serial();
+  	ocho();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (arriba == true){
+    if (piso == 8)
+    {
+    piso = 9;
+    serial();
+  	nueve();
+  	delay(tiempo);
+    detener = true;
+    comDetener();
+    }
+  }
+  else{
+    detener = true;
+    comDetener();
+  }
+}
+
+void bajando()
+{
+  digitalWrite(ledRojo,LOW);
+  digitalWrite(ledVerde,HIGH);
+  if (abajo == true){
+    if (piso == 9)
+    {
+    piso = 8;
+    serial();
+  	ocho();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 8)
+    {
+    piso = 7;
+    serial();
+  	siete();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 7)
+    {
+    piso = 6;
+    serial();
+  	seis();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 6)
+    {
+    piso = 5;
+    serial();
+  	cinco();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 5)
+    {
+    piso = 4;
+    serial();
+  	cuatro();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 4)
+    {
+    piso = 3;
+    serial();
+  	tres();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 3)
+    {
+    piso = 2;
+    serial();
+  	dos();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+    comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 2)
+    {
+    piso = 1;
+    serial();
+  	uno();
+  	delay(tiempo);
+    detener = digitalRead(parar);
+  	comDetener();
+    }
+  }
+  if (abajo == true){
+    if (piso == 1)
+    {
+    piso = 0;
+    serial();
+  	cero();
+  	delay(tiempo);
+    detener = true;
+  	comDetener();
+    }
+  }
+  else{
+    detener = true;
+  	comDetener();
+  }
+}
+````
 # Link del projecto
 https://www.tinkercad.com/things/kREDjjAq87N
