@@ -3,4 +3,4 @@
 # Integrantes
 - Matias Nicolas Castrellon
 # Visualizacion de proyecto en SPD
-![Captura](https://github.com/YieldingAsh/Documentacion_Parcial_SPD/img/Captura.png)
+![Captura](https://github.com/YieldingAsh/Documentacion_Parcial_SPD/img/Captura.PNG)
