@@ -29,22 +29,22 @@ implementado.
 • Deberán explicar el funcionamiento integral utilizando documentación
 MarkDown.
 # Funcion principal
--Esta es la funcion principal la cual verifica si se toco el boton de subir o de bajar, ademas de encender el led rojo el cual se enciende cuando esta parado.
+-Esta es la funcion principal de loop la cual llama a dos funciones las cuales cumplen con el funcionamiento pedido.
 ````
 void loop()
 {
-  digitalWrite(ledRojo,HIGH);
-  arriba = digitalRead(subir);
-  if (arriba == true){
-  	subiendo();
-  };
-  abajo = digitalRead(bajar);
-  if (abajo == true){
-    bajando();
-  };
+
+
+
+
+
+
+
+
+
 }
 ````
--Estas Funciones son para el display de 7 segmentos para la iluminacion de los leds correspondientes para generar la figura de un numero, el numero a generar de cada funcion es el nombre mismo de esa funcion.
+-Este swich es para el display de 7 segmentos para la iluminacion de los leds correspondientes para generar la figura de un numero, el numero a generar es el noumero del case.
 ````
 void cero()
 {
@@ -156,7 +156,7 @@ void nueve()
   digitalWrite(g,HIGH);
 }
 ````
--Esta funcion es un comporbador el cual se fija si el usuario esta pulsando el boton detener parar asi detener el monta carga
+-Esta funcion es un comporbador el cual se fija si el usuario al pulsar el boton detener parar el montacargas hasta que se toque uno de los botojes subir o bajar
 ````
 void comDetener()
 {
@@ -182,10 +182,10 @@ int ledRojo = 10;
 int bajar = 11;
 int parar = 12;
 int subir = 13;
-int tiempo = 3000;
-int arriba = false;
-int abajo = false;
-int detener = false;
+
+
+
+
 int piso = 0;
 ````
 -Funcion de setup para declarar los pines tambien para cetear el dispay en cero e inicialicar el serial ademas de imprimer el mensaje del piso en donde se encuentra el monta cargas
@@ -204,13 +204,13 @@ void setup()
   pinMode(bajar, INPUT);
   pinMode(parar, INPUT);
   pinMode(subir, INPUT);
-  cero();
+  
   Serial.begin(9600);
   Serial.print("Piso : ");
   Serial.print(piso);
 }
 ````
--Estas dos funciones son las encargadas de subir y bajar el montacargas e llamar la funcion del numero correspondiente a mostrar en el display
+-Esta funcion es la encargada de subir y bajar el montacargas e llamar la funcion del numero correspondiente a mostrarse y verificar si el boton detener fue presionado y si es asi llamar la funcion para detener el montacarga.
 ````
 void subiendo()
 {
@@ -432,7 +432,7 @@ void bajando()
 ````
 -Funcion para escribir en que piso esta el montacargas
 ````
-void serial()
+void serial(int piso)
 {
   Serial.print("\n");
   Serial.print("Piso : ");
