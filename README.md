@@ -169,19 +169,19 @@ void detener(bool e)
       delay(200);
       while (e)
       {
-            if (digitalRead(subir) == 1)
+            if (digitalRead(subir) == 1023)
             {
                   e = false;
                   led_estado(1);
                   delay(300);
             }
-            else if (digitalRead(bajar) == 1)
+            else if (digitalRead(bajar) == 1023)
             {
                   e = false;
                   led_estado(1);
                   delay(300);
             }
-            else if (digitalRead(bajar) == 1)
+            else if (digitalRead(parar) == 1)
             {
                   e = false;
                   led_estado(1);
