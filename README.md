@@ -29,143 +29,165 @@ implementado.
 • Deberán explicar el funcionamiento integral utilizando documentación
 MarkDown.
 # Funcion principal
--Esta es la funcion principal de loop la cual llama a dos funciones las cuales cumplen con el funcionamiento pedido.
+-Esta es la funcion principal de loop la cual llama a dos funciones una para mostrar el estado del montacarga que esta detenido y la otra funcion comprueba si quiere subir o bajar.
 ````
 void loop()
 {
-
-
-
-
-
-
-
-
-
+  led_estado(0);
+  subir_bajar(piso);
 }
 ````
--Este swich es para el display de 7 segmentos para la iluminacion de los leds correspondientes para generar la figura de un numero, el numero a generar es el noumero del case.
+-Esta funcion dependiendo del valor recibido en el parametro se encendera un led verde y se apagara el led rojo o se encendera un led rojo y se apagara el led verde.
 ````
-void cero()
+void led_estado(int i)
 {
-  digitalWrite(a,HIGH);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,LOW);
+      if (i == 1)
+      {
+            digitalWrite(ledRojo, LOW);
+            digitalWrite(ledVerde, HIGH);
+      }
+      else
+      {
+            digitalWrite(ledRojo, HIGH);
+            digitalWrite(ledVerde, LOW);
+      }
 }
-
-void uno()
+````
+-Esta funcion con un swich dependiendo del valor recibido en el parametro dirigido para el display de 7 segmentos para la iluminacion de los leds correspondientes para generar la figura de un numero, el numero a generar es el noumero del parametro recibido.
+````
+void n_led(int piso)
 {
-  digitalWrite(a,LOW);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-}
+ switch(piso)
+    {
+    case 0:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,HIGH);
+          digitalWrite(e,HIGH);
+          digitalWrite(f,HIGH);
+          digitalWrite(g,LOW);
+  		  break;
 
-void dos()
-{
-  digitalWrite(a,HIGH);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,LOW);
-  digitalWrite(g,HIGH);
-}
+    case 1:
+          digitalWrite(a,LOW);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,LOW);
+          digitalWrite(e,LOW);
+          digitalWrite(f,LOW);
+          digitalWrite(g,LOW);
+          break;
+  
+    case 2:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,LOW);
+          digitalWrite(d,HIGH);
+          digitalWrite(e,HIGH);
+          digitalWrite(f,LOW);
+          digitalWrite(g,HIGH);
+          break;
 
-void tres()
-{
-  digitalWrite(a,HIGH);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,HIGH);
-}
+    case 3:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,HIGH);
+          digitalWrite(e,LOW);
+          digitalWrite(f,LOW);
+          digitalWrite(g,HIGH);
+          break;
 
-void cuatro()
-{
-  digitalWrite(a,LOW);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-}
+    case 4:
+          digitalWrite(a,LOW);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,LOW);
+          digitalWrite(e,LOW);
+          digitalWrite(f,HIGH);
+          digitalWrite(g,HIGH);
+          break;
 
-void cinco()
-{
-  digitalWrite(a,HIGH);
-  digitalWrite(b,LOW);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,LOW);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-}
+    case 5:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,LOW);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,HIGH);
+          digitalWrite(e,LOW);
+          digitalWrite(f,HIGH);
+          digitalWrite(g,HIGH);
+          break;
 
-void seis()
-{
-  digitalWrite(a,HIGH);
-  digitalWrite(b,LOW);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-}
+    case 6:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,LOW);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,HIGH);
+          digitalWrite(e,HIGH);
+          digitalWrite(f,HIGH);
+          digitalWrite(g,HIGH);
+          break;
 
-void siete()
-{
-  digitalWrite(a,HIGH);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-}
+    case 7:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,LOW);
+          digitalWrite(e,LOW);
+          digitalWrite(f,LOW);
+          digitalWrite(g,LOW);
+          break;
 
-void ocho()
-{
-  digitalWrite(a,HIGH);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-}
+    case 8:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,HIGH);
+          digitalWrite(e,HIGH);
+          digitalWrite(f,HIGH);
+          digitalWrite(g,HIGH);
+          break;
 
-void nueve()
-{
-  digitalWrite(a,HIGH);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
+    case 9:
+          digitalWrite(a,HIGH);
+          digitalWrite(b,HIGH);
+          digitalWrite(c,HIGH);
+          digitalWrite(d,LOW);
+          digitalWrite(e,LOW);
+          digitalWrite(f,HIGH);
+          digitalWrite(g,HIGH);
+          break;
+	}
 }
 ````
 -Esta funcion es un comporbador el cual se fija si el usuario al pulsar el boton detener parar el montacargas hasta que se toque uno de los botojes subir o bajar
 ````
-void comDetener()
+void detener(bool e)
 {
-  if (detener == true){
-    	digitalWrite(ledRojo,HIGH);
-    	digitalWrite(ledVerde,LOW);
-    	arriba = false;
-    	abajo = false;
-  	}
+      led_estado(0);
+      delay(200);
+      while (e)
+      {
+            if (digitalRead(subir) == 1)
+            {
+                  e = false;
+                  led_estado(1);
+                  delay(300);
+            }
+            else if (digitalRead(bajar) == 1)
+            {
+                  e = false;
+                  led_estado(1);
+                  delay(300);
+            }
+            else if (digitalRead(bajar) == 1)
+            {
+                  e = false;
+                  led_estado(1);
+                  delay(300);
+            }
+      }
 }
 ````
 -Estos son todas las variables declaradas
@@ -182,10 +204,7 @@ int ledRojo = 10;
 int bajar = 11;
 int parar = 12;
 int subir = 13;
-
-
-
-
+int tiempo = 3000;
 int piso = 0;
 ````
 -Funcion de setup para declarar los pines tambien para cetear el dispay en cero e inicialicar el serial ademas de imprimer el mensaje del piso en donde se encuentra el monta cargas
@@ -204,239 +223,43 @@ void setup()
   pinMode(bajar, INPUT);
   pinMode(parar, INPUT);
   pinMode(subir, INPUT);
-  
+  digitalWrite(ledRojo,HIGH);
   Serial.begin(9600);
+  n_led(piso);
   Serial.print("Piso : ");
   Serial.print(piso);
 }
 ````
 -Esta funcion es la encargada de subir y bajar el montacargas e llamar la funcion del numero correspondiente a mostrarse y verificar si el boton detener fue presionado y si es asi llamar la funcion para detener el montacarga.
 ````
-void subiendo()
+void subir_bajar(int &piso)
 {
-  digitalWrite(ledRojo,LOW);
-  digitalWrite(ledVerde,HIGH);
-  if (arriba == true){
-    if (piso == 0)
-    {
-    piso = 1;
-    serial();
-  	uno();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-  	comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 1)
-    {
-    piso = 2;
-    serial();
-  	dos();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 2)
-    {
-    piso = 3;
-    serial();
-  	tres();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 3)
-    {
-    piso = 4;
-    serial();
-  	cuatro();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 4)
-    {
-    piso = 5;
-    serial();
-  	cinco();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 5)
-    {
-    piso = 6;
-    serial();
-  	seis();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 6)
-    {
-    piso = 7;
-    serial();
-  	siete();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 7)
-    {
-    piso = 8;
-    serial();
-  	ocho();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (arriba == true){
-    if (piso == 8)
-    {
-    piso = 9;
-    serial();
-  	nueve();
-  	delay(tiempo);
-    detener = true;
-    comDetener();
-    }
-  }
-  else{
-    detener = true;
-    comDetener();
-  }
+      if (digitalRead(subir) == 1)
+      {
+            while (piso < 9)
+            {
+                  piso++;
+                  mover(piso);
+            }
+      }
+      else if (digitalRead(bajar) == 1)
+      {
+            while (piso > 0)
+            {
+                  piso--;
+                  mover(piso);
+            }
+      }
 }
 
-void bajando()
-{
-  digitalWrite(ledRojo,LOW);
-  digitalWrite(ledVerde,HIGH);
-  if (abajo == true){
-    if (piso == 9)
-    {
-    piso = 8;
-    serial();
-  	ocho();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 8)
-    {
-    piso = 7;
-    serial();
-  	siete();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 7)
-    {
-    piso = 6;
-    serial();
-  	seis();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 6)
-    {
-    piso = 5;
-    serial();
-  	cinco();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 5)
-    {
-    piso = 4;
-    serial();
-  	cuatro();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 4)
-    {
-    piso = 3;
-    serial();
-  	tres();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 3)
-    {
-    piso = 2;
-    serial();
-  	dos();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-    comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 2)
-    {
-    piso = 1;
-    serial();
-  	uno();
-  	delay(tiempo);
-    detener = digitalRead(parar);
-  	comDetener();
-    }
-  }
-  if (abajo == true){
-    if (piso == 1)
-    {
-    piso = 0;
-    serial();
-  	cero();
-  	delay(tiempo);
-    detener = true;
-  	comDetener();
-    }
-  }
-  else{
-    detener = true;
-  	comDetener();
-  }
-}
 ````
 -Funcion para escribir en que piso esta el montacargas
 ````
 void serial(int piso)
 {
-  Serial.print("\n");
-  Serial.print("Piso : ");
-  Serial.print(piso);
+      Serial.print("\n");
+      Serial.print("Piso : ");
+      Serial.print(piso);
 }
 ````
 # Link del projecto
