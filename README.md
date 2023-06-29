@@ -294,7 +294,7 @@ void funcion(bool e)
      Serial.print("Alarma de incendio activada");
      digitalWrite(ledNaranja, HIGH);
      tone(buzzer, 0.1);
-     delay(10);
+     delay(100);
      for (int i = 0; i < 3000; i++)
       {
             if (analogRead(alarma) == 1023)
