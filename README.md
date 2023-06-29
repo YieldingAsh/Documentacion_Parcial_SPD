@@ -2,8 +2,8 @@
 ![ArduinoTinkercad](https://github.com/YieldingAsh/Documentacion_Parcial_SPD/assets/99512390/bab40be3-f0c3-4d94-9956-880f75f535fe)
 # Integrantes
 - Matias Nicolas Castrellon
-# Visualizacion de proyecto en SPD
-![image](https://github.com/YieldingAsh/Documentacion_Parcial_SPD/assets/99512390/9e6416a7-b85f-4907-a9e9-db047e0161b0)
+# Visualizacion de proyecto en Tinkercad 
+![image](https://github.com/YieldingAsh/Documentacion_Parcial_SPD/assets/99512390/21364ab1-49b4-42f9-a1c9-b82bbe91bf44)
 Requisitos del Proyecto:
 1) Interfaz de usuario:
 • Deberá haber 3 botones, uno para subir pisos, otro para bajar pisos y otro para
