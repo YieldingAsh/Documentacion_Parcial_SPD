@@ -281,6 +281,6 @@ void serial(int piso)
 }
 ````
 # Link del projecto
-[https://www.tinkercad.com/things/kREDjjAq87N](https://www.tinkercad.com/things/kREDjjAq87N)
+https://www.tinkercad.com/things/kREDjjAq87N
 # Link del codigo fuente
-[https://onlinegdb.com/Glc_nr0Af](https://onlinegdb.com/9e9_7GfI6)https://onlinegdb.com/9e9_7GfI6
+https://onlinegdb.com/9e9_7GfI6
