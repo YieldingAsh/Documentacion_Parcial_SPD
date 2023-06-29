@@ -218,7 +218,7 @@ void setup()
       pinMode(e, OUTPUT);
       pinMode(f, OUTPUT);
       pinMode(g, OUTPUT);
-  	  pinMode(buzzer, OUTPUT);
+      pinMode(buzzer, OUTPUT);
       pinMode(ledVerde, OUTPUT);
       pinMode(ledRojo, OUTPUT);
       pinMode(ledNaranja, OUTPUT);
