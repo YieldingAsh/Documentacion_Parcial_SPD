@@ -211,30 +211,30 @@ int piso = 0;
 ````
 void setup()
 {
-  pinMode(a,OUTPUT);
-  pinMode(b,OUTPUT);
-  pinMode(c,OUTPUT);
-  pinMode(d,OUTPUT);
-  pinMode(e,OUTPUT);
-  pinMode(f,OUTPUT);
-  pinMode(g,OUTPUT);
-  pinMode(ledVerde, OUTPUT);
-  pinMode(ledRojo, OUTPUT);
-  pinMode(bajar, INPUT);
-  pinMode(parar, INPUT);
-  pinMode(subir, INPUT);
-  digitalWrite(ledRojo,HIGH);
-  Serial.begin(9600);
-  n_led(piso);
-  Serial.print("Piso : ");
-  Serial.print(piso);
+      pinMode(a, OUTPUT);
+      pinMode(b, OUTPUT);
+      pinMode(c, OUTPUT);
+      pinMode(d, OUTPUT);
+      pinMode(e, OUTPUT);
+      pinMode(f, OUTPUT);
+      pinMode(g, OUTPUT);
+  	  pinMode(buzzer, OUTPUT);
+      pinMode(ledVerde, OUTPUT);
+      pinMode(ledRojo, OUTPUT);
+      pinMode(ledNaranja, OUTPUT);
+      pinMode(parar, INPUT);
+      digitalWrite(ledRojo, HIGH);
+      Serial.begin(9600);
+      n_led(piso);
+      Serial.print("Piso : ");
+      Serial.print(piso);
 }
 ````
 -Esta funcion es la encargada de fijarse si los botones subir y bajar son presionador y empezar a llamar a la funcion para que mueva el montacargas.
 ````
 void subir_bajar(int &piso)
 {
-      if (digitalRead(subir) == 1)
+      if (digitalRead(subir) == 1023)
       {
             while (piso < 9)
             {
@@ -242,13 +242,17 @@ void subir_bajar(int &piso)
                   mover(piso);
             }
       }
-      else if (digitalRead(bajar) == 1)
+      else if (digitalRead(bajar) == 1023)
       {
             while (piso > 0)
             {
                   piso--;
                   mover(piso);
             }
+      }
+      else if (analogRead(alarma) == 1023)
+      {
+        funcion(true);
       }
 }
 
@@ -278,6 +282,31 @@ void serial(int piso)
       Serial.print("\n");
       Serial.print("Piso : ");
       Serial.print(piso);
+}
+````
+-Funcion envia a la consola una alerta de incedios. enciende un led naranja y hace sonar un piezo por 3 segundos despues lo apaga por un 1 segundo vuelve arrepetirse a menos que se toque de vuelta el boton de incendios
+````
+void funcion(bool e)
+{
+  while(e)
+  {
+     Serial.print("\n");
+     Serial.print("Alarma de incendio activada");
+     digitalWrite(ledNaranja, HIGH);
+     tone(buzzer, 0.1);
+     delay(10);
+     for (int i = 0; i < 3000; i++)
+      {
+            if (analogRead(alarma) == 1023)
+            {
+                  e=false;
+            }
+            delay(1);
+      }
+     noTone(buzzer);
+     digitalWrite(ledNaranja, LOW);
+     delay(1000);
+  }
 }
 ````
 # Link del projecto
