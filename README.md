@@ -161,7 +161,7 @@ void n_led(int piso)
 	}
 }
 ````
--Esta funcion es un comporbador el cual se fija si el usuario al pulsar el boton detener parar el montacargas hasta que se toque uno de los botojes subir o bajar
+-Esta funcion es un comporbador el cual matiene el montacarga detenido y llama la funcion de led  para decir que esta parado, se fija si el usuario pulsar el boton deteber, subir o bajar para continuar con la orden anterior impuesta
 ````
 void detener(bool e)
 {
@@ -207,7 +207,7 @@ int subir = 13;
 int tiempo = 3000;
 int piso = 0;
 ````
--Funcion de setup para declarar los pines tambien para cetear el dispay en cero e inicialicar el serial ademas de imprimer el mensaje del piso en donde se encuentra el monta cargas
+-Funcion de setup para declarar los pines tambien para cetear el dispay en cero e inicialicar el serial ademas de imprimer el mensaje del piso en donde se encuentra el monta cargas el cual comienza en 0
 ````
 void setup()
 {
@@ -230,7 +230,7 @@ void setup()
   Serial.print(piso);
 }
 ````
--Esta funcion es la encargada de subir y bajar el montacargas e llamar la funcion del numero correspondiente a mostrarse y verificar si el boton detener fue presionado y si es asi llamar la funcion para detener el montacarga.
+-Esta funcion es la encargada de fijarse si los botones subir y bajar son presionador y empezar a llamar a la funcion para que mueva el montacargas.
 ````
 void subir_bajar(int &piso)
 {
@@ -252,6 +252,24 @@ void subir_bajar(int &piso)
       }
 }
 
+````
+-Esta funcion es la encargada de simular el trayecto de subida y bajada del montacargas ademas de comprobar en el trayecto de los 3 segundos si el boton detener es pulsado en caso de ser asi llama a la funcion para detener el montacargas, continuando con el codigo despues llama a la funcion para imprimi en la consola en que piso se encuentra el montacargas y llamar a la funcion para mostrar en el display de 7 segmentos el numero del piso en el que se encuentra.
+````
+void mover(int piso)
+{
+      led_estado(1);
+      for (int i = 0; i < 3000; i++)
+      {
+            if (digitalRead(parar) == 1)
+            {
+                  detener(true);
+            }
+            delay(1);
+      }
+      serial(piso);
+      n_led(piso);
+      delay(300);
+}
 ````
 -Funcion para escribir en que piso esta el montacargas
 ````
